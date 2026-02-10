@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Login</title>
+    <!-- Optional: Link to a CSS file for styling -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <!-- The form element defines the login form -->
+        <!-- The action attribute specifies where to send the form-data when a form is submitted (e.g., a server-side script for authentication) -->
+        <!-- The method attribute specifies the HTTP method to use (POST is recommended for sensitive data like passwords) -->
+        <form action="action_page.php" method="post">
+            
+            <div class="input-group">
+                <label for="username">Username</label>
+                <!-- Input field for username (text type) -->
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <!-- Input field for password (password type hides the input characters) -->
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            
+            <button type="submit">Log In</button>
+            
+            <!-- Optional links -->
+            <div class="links">
+                <a href="#">Forgot password?</a>
+                <span>|</span>
+                <a href="signup.html">Register</a>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
