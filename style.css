@@ -73,3 +73,45 @@ button {
     cursor: pointer;
     margin-top: 10px;
 }
+
+.new-users-link {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.new-users-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.page-header {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    padding: 16px 20px;
+    border-radius: 0;
+}
+
+.page-footer {
+    width: 100%;
+    text-align: center;
+    color: #2563eb;
+    font-weight: 600;
+    margin-top: auto;
+    padding: 16px 20px 24px;
+}
+
+.page-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+}
