@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-body">
-    <header class="page-header">Soy un header</header>
+    <header class="page-header">
+        Soy un header
+        <button onclick="logout()" class="logout-btn">Cerrar Sesión</button>
+    </header>
 
     <div class="page-content">
         <h1>Página 1</h1>
@@ -17,5 +20,11 @@
     </div>
 
     <footer class="page-footer">Soy un footnote</footer>
+
+    <script>
+        function logout() {
+            window.location.href = 'login.html';
+        }
+    </script>
 </body>
 </html>

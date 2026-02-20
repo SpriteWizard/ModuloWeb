@@ -10,7 +10,7 @@
 
     <div class="login-container">
         <h2>Login</h2>
-        <form action="page.html" method="post">
+        <form id="loginForm" action="page.html" method="post">
             
             <div class="input-group">
                 <label for="email">Correo Electrónico</label>
@@ -22,12 +22,55 @@
                 <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
             </div>
             
+            <div id="error-message" style="color: red; margin-bottom: 10px; display: none;">
+                Credenciales incorrectas. Intente nuevamente.
+            </div>
+            
             <button type="submit">Iniciar Sesión</button>
             
             <a class="new-users-link" href="newtoys.html">Nuevo usuario</a>
 
         </form>
     </div>
+
+    <script>
+        // Credenciales hardcodeadas
+        const VALID_EMAIL = "admin@ejemplo.com";
+        const VALID_PASSWORD = "123456";
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el envío del formulario
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            
+            let isValid = false;
+
+            // Validar credenciales hardcodeadas
+            if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+                isValid = true;
+            }
+
+            // Validar contra usuario registrado en localStorage
+            const registeredUser = localStorage.getItem('registeredUser');
+            if (registeredUser) {
+                const userData = JSON.parse(registeredUser);
+                if (email === userData.email && password === userData.password) {
+                    isValid = true;
+                }
+            }
+            
+            if (isValid) {
+                // Credenciales correctas - redirigir a page.html
+                console.log('Login exitoso para:', email);
+                window.location.href = 'page.html';
+            } else {
+                // Credenciales incorrectas - mostrar mensaje de error
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
 
 </body>
 </html>

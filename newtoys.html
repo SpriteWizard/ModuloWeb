@@ -10,7 +10,7 @@
 
 	<div class="login-container">
 		<h2>Crear cuenta</h2>
-		<form action="page.html" method="post">
+		<form id="registerForm" action="page.html" method="post">
 
 			<div class="input-group">
 				<label for="full-name">Nombre completo</label>
@@ -42,10 +42,65 @@
 				<input type="password" id="confirm-password" name="confirm_password" placeholder="Repita su contraseña" required>
 			</div>
 
+			<div id="error-message" style="color: red; margin-bottom: 10px; display: none;"></div>
+			<div id="success-message" style="color: green; margin-bottom: 10px; display: none;">
+				Cuenta creada exitosamente!
+			</div>
+
 			<button type="submit">Crear cuenta</button>
 
 		</form>
 	</div>
+
+	<script>
+		document.getElementById('registerForm').addEventListener('submit', function(event) {
+			event.preventDefault();
+
+			const fullName = document.getElementById('full-name').value;
+			const email = document.getElementById('email').value;
+			const username = document.getElementById('username').value;
+			const phone = document.getElementById('phone').value;
+			const password = document.getElementById('password').value;
+			const confirmPassword = document.getElementById('confirm-password').value;
+			
+			const errorMessage = document.getElementById('error-message');
+			const successMessage = document.getElementById('success-message');
+
+			// Validar que las contraseñas coincidan
+			if (password !== confirmPassword) {
+				errorMessage.textContent = 'Las contraseñas no coinciden';
+				errorMessage.style.display = 'block';
+				successMessage.style.display = 'none';
+				return;
+			}
+
+			// Crear objeto con los datos del usuario
+			const userData = {
+				fullName: fullName,
+				email: email,
+				username: username,
+				phone: phone,
+				password: password,
+				registeredAt: new Date().toISOString()
+			};
+
+			// Imprimir en consola
+			console.log('Nuevo usuario registrado:', userData);
+			console.log('Datos en formato JSON:', JSON.stringify(userData, null, 2));
+
+			// Guardar en localStorage
+			localStorage.setItem('registeredUser', JSON.stringify(userData));
+
+			// Mostrar mensaje de éxito
+			errorMessage.style.display = 'none';
+			successMessage.style.display = 'block';
+
+			// Redirigir después de 1.5 segundos
+			setTimeout(function() {
+				window.location.href = 'page.html';
+			}, 1500);
+		});
+	</script>
 
 </body>
 </html>
