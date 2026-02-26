@@ -62,8 +62,17 @@
             }
             
             if (isValid) {
-                // Credenciales correctas - redirigir a page.html
+                // Credenciales correctas - crear sesión con token
+                const sessionToken = {
+                    user: email,
+                    timestamp: new Date().getTime(),
+                    isAuthenticated: true
+                };
+                localStorage.setItem('userSession', JSON.stringify(sessionToken));
+                
                 console.log('Login exitoso para:', email);
+                console.log('Token de sesión creado:', sessionToken);
+                
                 window.location.href = 'page.html';
             } else {
                 // Credenciales incorrectas - mostrar mensaje de error

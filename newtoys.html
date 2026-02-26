@@ -90,7 +90,14 @@
 
 			// Guardar en localStorage
 			localStorage.setItem('registeredUser', JSON.stringify(userData));
-
+		// Crear sesión automática con token después del registro
+		const sessionToken = {
+			user: email,
+			timestamp: new Date().getTime(),
+			isAuthenticated: true
+		};
+		localStorage.setItem('userSession', JSON.stringify(sessionToken));
+		console.log('Token de sesión creado para nuevo usuario:', sessionToken);
 			// Mostrar mensaje de éxito
 			errorMessage.style.display = 'none';
 			successMessage.style.display = 'block';
