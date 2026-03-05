@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 4</title>
+    <title>Página 4</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-body">
@@ -18,58 +18,6 @@
 
     <div id="footer-container"></div>
 
-    <script>
-        // Verificar sesión al cargar la página
-        window.addEventListener('DOMContentLoaded', function() {
-            const userSession = localStorage.getItem('userSession');
-            
-            if (!userSession) {
-                // No hay sesión, redirigir al login
-                window.location.href = 'login.html';
-                return;
-            }
-            
-            try {
-                const session = JSON.parse(userSession);
-                
-                // Validar que la sesión sea válida
-                if (!session.isAuthenticated) {
-                    throw new Error('Sesión inválida');
-                }
-                
-                // Verificar expiración (1 hora)
-                const currentTime = new Date().getTime();
-                const sessionAge = currentTime - session.timestamp;
-                const oneHour = 60 * 60 * 1000;
-                
-                if (sessionAge > oneHour) {
-                    throw new Error('Sesión expirada');
-                }
-                
-                console.log('Sesión válida para usuario:', session.user);
-                
-            } catch (error) {
-                // Sesión inválida o expirada
-                console.log('Sesión inválida:', error.message);
-                localStorage.removeItem('userSession');
-                window.location.href = 'login.html';
-            }
-        });
-
-        // Cargar header y footer
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header-container').innerHTML = data);
-        
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('footer-container').innerHTML = data);
-        
-        function logout() {
-            localStorage.removeItem('userSession');
-            console.log('Sesión cerrada');
-            window.location.href = 'login.html';
-        }
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
