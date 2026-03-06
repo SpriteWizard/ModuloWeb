@@ -12,18 +12,37 @@
 
     <div class="page-content">
         <h1>Pokédex</h1>
-        
-        <div class="card" id="card">
-            <div class="loading">
-                <div class="spinner"></div>
-                Cargando Pokédex...
-            </div>
+
+        <!-- Filtros: nombre, id y tipo -->
+        <div class="pokedex-filters">
+            <input type="text" id="filter-name" placeholder="Buscar por nombre..." oninput="applyFilters()" />
+            <input type="text" id="filter-id" placeholder="Buscar por #ID..." oninput="applyFilters()" />
+            <select id="filter-type" onchange="applyFilters()">
+                <option value="">Todos los tipos</option>
+                <option value="grass">Grass</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="flying">Flying</option>
+                <option value="poison">Poison</option>
+                <option value="bug">Bug</option>
+                <option value="normal">Normal</option>
+                <option value="electric">Electric</option>
+                <option value="ground">Ground</option>
+                <option value="fairy">Fairy</option>
+                <option value="fighting">Fighting</option>
+                <option value="psychic">Psychic</option>
+                <option value="rock">Rock</option>
+                <option value="ghost">Ghost</option>
+                <option value="ice">Ice</option>
+                <option value="dragon">Dragon</option>
+                <option value="dark">Dark</option>
+                <option value="steel">Steel</option>
+            </select>
         </div>
 
-        <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
-            <a href="page2.html" class="btn">Ir a Página 2</a>
-            <a href="page3.html" class="btn">Ir a Página 3</a>
-            <a href="page4.html" class="btn">Ir a Página 4</a>
+        <!-- Las tarjetas -->
+        <div class="pokedex-grid" id="pokedex-grid">
+            <div class="loading"><div class="spinner"></div>Cargando Pokédex...</div>
         </div>
     </div>
 
