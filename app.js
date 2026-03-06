@@ -69,10 +69,13 @@ function buildStatRows(stats) {
 // Arma la tarjeta completa y la devuelve como string de HTML.
 // Guardamos id, nombre y tipos como data-* para filtrar sin volver a la API.
 function buildCard(data) {
+  // En pokeapi el id es un número
   const id       = formatId(data.id);
+  // En pokeapi el nombre viene todo en minúscula
   const name     = capitalize(data.name);
+  // En pokeapi las imágenes oficiales están en sprites.other['official-artwork']
   const imageUrl = data.sprites.other['official-artwork'].front_default
-                || data.sprites.front_default;
+  // En pokeapi los tipos, habilidades y stats vienen como arrays de objetos, así que los mapeamos a lo que necesitamos para mostrar
   const types    = data.types.map(t => t.type.name);
   const abilities = data.abilities.map(a => a.ability.name.replace('-', ' '));
   const stats    = data.stats.map(s => ({ name: s.stat.name, value: s.base_stat }));
