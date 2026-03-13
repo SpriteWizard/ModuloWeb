@@ -3,17 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 2</title>
+    <title>Pokemon Battle</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-body">
     <div id="header-container"></div>
 
     <div class="page-content">
-        <h1>Página 2</h1>
-        <a href="page.html" class="btn">Ir a Página 1</a>
-        <a href="page3.html" class="btn">Ir a Página 3</a>
-        <a href="page4.html" class="btn">Ir a Página 4</a>
+        <h1 class="battle-page-title">Pokemon Battle</h1>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px;">
+            <a href="page.html" class="btn" style="max-width:160px; font-size:13px;">Ir a Pagina 1</a>
+            <a href="page3.html" class="btn" style="max-width:160px; font-size:13px;">Ir a Pagina 3</a>
+            <a href="page4.html" class="btn" style="max-width:160px; font-size:13px;">Ir a Pagina 4</a>
+        </div>
+
+        <!-- SELECTOR -->
+        <div class="battle-selector" id="battle-selector">
+            <div class="battle-picker">
+                <div class="picker-title">Pokemon 1</div>
+                <div class="picker-search">
+                    <input type="text" id="search-1" placeholder="Nombre o ID..." oninput="searchPokemon(1)" autocomplete="off">
+                </div>
+                <div class="picker-suggestions" id="suggestions-1"></div>
+                <div class="picker-preview" id="preview-1">
+                    <span class="picker-placeholder">Sin seleccionar</span>
+                </div>
+            </div>
+
+            <div class="battle-vs">VS</div>
+
+            <div class="battle-picker">
+                <div class="picker-title">Pokemon 2</div>
+                <div class="picker-search">
+                    <input type="text" id="search-2" placeholder="Nombre o ID..." oninput="searchPokemon(2)" autocomplete="off">
+                </div>
+                <div class="picker-suggestions" id="suggestions-2"></div>
+                <div class="picker-preview" id="preview-2">
+                    <span class="picker-placeholder">Sin seleccionar</span>
+                </div>
+            </div>
+        </div>
+
+        <button id="start-battle-btn" class="battle-start-btn" onclick="startBattle()" disabled>
+            COMENZAR BATALLA
+        </button>
+
+        <!-- ARENA -->
+        <div class="battle-arena" id="battle-arena" style="display:none;">
+            <div class="battle-hud">
+                <div class="hud-pokemon">
+                    <div class="hud-name" id="hud-name-1">-</div>
+                    <div class="hud-hp-bar-bg"><div class="hud-hp-bar" id="hp-bar-1" style="width:100%"></div></div>
+                    <div class="hud-hp-text" id="hp-text-1">100%</div>
+                </div>
+                <div class="hud-sep">vs</div>
+                <div class="hud-pokemon" style="text-align:right;">
+                    <div class="hud-name" id="hud-name-2">-</div>
+                    <div class="hud-hp-bar-bg"><div class="hud-hp-bar" id="hp-bar-2" style="width:100%"></div></div>
+                    <div class="hud-hp-text" id="hp-text-2">100%</div>
+                </div>
+            </div>
+
+            <div class="battle-field">
+                <img class="battle-sprite" id="battle-sprite-1" src="" alt="">
+                <img class="battle-sprite battle-sprite--flip" id="battle-sprite-2" src="" alt="">
+            </div>
+
+            <div class="battle-log" id="battle-log"></div>
+
+            <div class="battle-controls">
+                <button class="btn" id="btn-next" onclick="battleNextStep()" style="max-width:180px;">Siguiente turno</button>
+                <button class="btn" id="btn-auto" onclick="battleAutoPlay()" style="max-width:180px; background:#8BC34A;">Auto</button>
+            </div>
+        </div>
+
+        <!-- GANADOR -->
+        <div class="battle-winner-screen" id="winner-screen" style="display:none;">
+            <div class="winner-label">GANADOR</div>
+            <img class="winner-img" id="winner-img" src="" alt="">
+            <div class="winner-name" id="winner-name"></div>
+            <button class="battle-start-btn" onclick="resetBattle()" style="max-width:200px;">Jugar de nuevo</button>
+        </div>
     </div>
 
     <div id="footer-container"></div>

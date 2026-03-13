@@ -411,3 +411,162 @@ body.pokemon-view {
 .load-more-btn:hover {
   background: #2563eb;
 }
+/* ── Battle Game ── */
+.battle-page-title { font-size: 20px; font-weight: 900; margin-bottom: 16px; }
+
+.battle-selector {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.battle-picker {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 16px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 320px;
+}
+
+.picker-title { font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+
+.picker-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.picker-suggestions {
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  margin-top: 4px;
+}
+
+.picker-suggestion-item {
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.picker-suggestion-item:hover { background: #eee; }
+.picker-suggestion-item img { width: 28px; height: 28px; image-rendering: pixelated; }
+
+.picker-preview {
+  margin-top: 12px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.picker-placeholder { color: #999; font-size: 13px; }
+.picker-preview img { width: 80px; height: 80px; object-fit: contain; image-rendering: pixelated; }
+.picker-preview-name { font-weight: 700; font-size: 14px; }
+.picker-preview-types { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; }
+
+.battle-vs { font-size: 20px; font-weight: 900; align-self: center; flex-shrink: 0; }
+
+.battle-start-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 24px;
+  padding: 14px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.battle-start-btn:disabled { background: #aaa; cursor: not-allowed; }
+
+/* Arena */
+.battle-arena {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.battle-hud { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.hud-pokemon { flex: 1; }
+.hud-name { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+
+.hud-hp-bar-bg { height: 8px; background: #ddd; border-radius: 4px; overflow: hidden; }
+.hud-hp-bar { height: 100%; background: #3b82f6; border-radius: 4px; transition: width 0.3s, background 0.3s; }
+.hud-hp-text { font-size: 11px; color: #666; margin-top: 3px; }
+.hud-sep { font-size: 14px; font-weight: 700; flex-shrink: 0; }
+
+.battle-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 140px;
+  background: #e8e8e8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.battle-sprite { width: 110px; height: 110px; object-fit: contain; image-rendering: pixelated; }
+.battle-sprite--flip { transform: scaleX(-1); }
+
+.battle-log {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.log-entry {
+  background: white;
+  border-left: 3px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #333;
+}
+.log-entry.log-turn   { border-left-color: #3b82f6; font-weight: 700; }
+.log-entry.log-attack { border-left-color: #ef4444; }
+.log-entry.log-special{ border-left-color: #f59e0b; }
+.log-entry.log-defense{ border-left-color: #3b82f6; }
+.log-entry.log-miss   { border-left-color: #aaa; color: #888; }
+.log-entry.log-ko     { border-left-color: #ef4444; font-weight: 700; color: #ef4444; }
+
+.battle-controls { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* Winner */
+.battle-winner-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 32px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.winner-label { font-size: 20px; font-weight: 900; }
+.winner-img { width: 180px; height: 180px; object-fit: contain; image-rendering: pixelated; }
+.winner-name { font-size: 22px; font-weight: 900; }
