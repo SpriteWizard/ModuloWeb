@@ -312,7 +312,7 @@ async function selectBattlePokemon(slot, name) {
   document.getElementById('start-battle-btn').disabled = !(battlePokemon[0] && battlePokemon[1]);
 }
 
-// ── Motor de batalla ──────────────────────────────────────
+// Motor de batalla
 
 // Construye el objeto de estado de un pokemon a partir de datos de PokeAPI.
 // Solo extrae HP y speed; el resto de stats no se usan en este sistema de combate.
@@ -423,6 +423,7 @@ function executeTurn(state) {
   state.activeIdx = di;
 }
 
+// BATTLE
 // Crea el objeto inicial de la batalla con ambos pokemon y decide quien va primero.
 // El de mayor speed ataca primero; en empate gana el pokemon 1.
 function createBattle(p1data, p2data) {
